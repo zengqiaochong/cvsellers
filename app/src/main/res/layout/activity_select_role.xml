@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray">
+
+    <RelativeLayout
+        android:id="@+id/role_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/green">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/return_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/choice_role"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/role_title">
+
+        <RelativeLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            >
+
+            <RelativeLayout
+                android:id="@+id/supplier_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                >
+
+                <Button
+                    android:id="@+id/bt_supplier"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_fillet"
+                    android:text="@string/supplier"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/provincial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/supplier_layout"
+                android:layout_marginTop="30dp"
+
+                >
+
+                <Button
+                    android:id="@+id/bt_provincial"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_fillet"
+                    android:text="@string/provincial"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Prefecture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/provincial"
+                android:layout_marginTop="30dp"
+
+                >
+
+                <Button
+                    android:id="@+id/bt_districk"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_fillet"
+                    android:text="@string/Prefecture"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/stage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Prefecture"
+                android:layout_marginTop="30dp"
+
+                >
+
+                <Button
+                    android:id="@+id/bt_stage"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_fillet"
+                    android:text="@string/stage"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Distribution_clerk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stage"
+                android:layout_marginTop="30dp"
+
+                >
+
+                <Button
+                    android:id="@+id/bt_manager"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_fillet"
+                    android:text="@string/Distribution_clerk"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

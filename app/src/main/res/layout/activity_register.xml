@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray">
+
+    <RelativeLayout
+        android:id="@+id/re_account_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/green">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/return_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/re_account_name"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/re_account_title">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp">
+
+                <RelativeLayout
+                    android:id="@+id/re_tel_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_radius">
+                    >
+
+                    <ImageView
+                        android:id="@+id/tel_img"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/iv_phone" />
+
+                    <EditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/tel_img"
+                        android:background="@color/white"
+                        android:hint="@string/re_tel"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:maxLength="11"
+                        android:textColor="@color/green"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/re_tel_layout">
+
+                    <Button
+
+                        android:id="@+id/bt_get_coder"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/button_fillet"
+                        android:text="@string/re_obtain_Ver_code"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Ver_code_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/re_tel_layout"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+
+                    >
+
+                    <TextView
+                        android:id="@+id/Ver_code_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/re_Ver_code_name"
+                        android:textColor="@color/green"
+                        android:textSize="13sp"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/et_coder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/Ver_code_text"
+                        android:background="@color/white"
+                        android:hint="@string/re_input_Ver_code"
+                        android:singleLine="true"
+                        android:textColor="@color/green"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Prefecture"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/Ver_code_layout"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+                    >
+
+                    <ImageView
+                        android:id="@+id/Set_pass_img"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/pass_img" />
+
+                    <EditText
+                        android:id="@+id/et_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/Set_pass_img"
+                        android:background="@color/white"
+                        android:hint="@string/re_Set_pass"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:textColor="@color/green"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/re_ok_pass_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/Prefecture"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/re_ok_pass_text"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/pass_img" />
+
+                    <EditText
+                        android:id="@+id/et_pwd_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/re_ok_pass_text"
+                        android:background="@color/white"
+                        android:hint="@string/re_ok_pass_prompt"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:textColor="@color/green"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/re_Real_name_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/re_ok_pass_layout"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+
+                    <TextView
+                        android:id="@+id/re_Real_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/re_Real_name"
+                        android:textColor="@color/green"
+                        android:textSize="13sp"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/et_nick_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/re_Real_name"
+                        android:background="@color/white"
+                        android:hint="@string/re_Real_name_prompt"
+                        android:singleLine="true"
+                        android:textColor="@color/green"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/identification_name_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/re_Real_name_layout"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+
+                    <TextView
+                        android:id="@+id/identification_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/re_identification"
+                        android:textColor="@color/green"
+                        android:textSize="13sp"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/et_user_id_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/identification_name"
+                        android:background="@color/white"
+                        android:hint="@string/re_identification_prompt"
+                        android:singleLine="true"
+                        android:textColor="@color/green"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_panel_up_manager"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/identification_name_layout"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+
+                    <TextView
+                        android:id="@+id/superior_stage_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/re_superior_stage"
+                        android:textColor="@color/green"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tv_up_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:singleLine="true"
+                        android:text=">"
+                        android:textColor="@color/green" />
+
+                    <TextView
+                        android:id="@+id/tv_update_manager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/tv_up_arrow"
+                        android:layout_toRightOf="@+id/superior_stage_text"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/green" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_panel_area"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_panel_up_manager"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+
+                    <TextView
+                        android:id="@+id/service_name_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/re_service_name"
+                        android:textColor="@color/green"
+                        android:textSize="13sp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_server_name_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:singleLine="true"
+                        android:text=">"
+                        android:textColor="@color/green"></TextView>
+                    <TextView
+                        android:id="@+id/tv_server_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/tv_server_name_arrow"
+                        android:layout_toRightOf="@+id/service_name_text"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/green" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/physical_store_name_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_panel_area"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+
+                    <TextView
+                        android:id="@+id/re_physical_store_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/re_physical_store_name"
+                        android:textColor="@color/green"
+                        android:textSize="13sp"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/et_market_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/re_physical_store_name"
+                        android:background="@color/white"
+                        android:hint="@string/re_input_physical_store_name"
+                        android:singleLine="true"
+                        android:textColor="@color/green"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/physical_store_position_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/physical_store_name_layout"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+
+                    <TextView
+                        android:id="@+id/physical_store_position_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:singleLine="true"
+                        android:text="@string/re_physical_store_position"
+                        android:textColor="@color/green"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/et_market_postion"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/physical_store_position_name"
+                        android:background="@color/white"
+                        android:hint="@string/re_input_physical_store_name"
+                        android:singleLine="true"
+                        android:textColor="@color/green"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_panel_server_type"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/physical_store_position_layout"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius">
+
+                    <TextView
+                        android:id="@+id/provide_mode_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/re_provide_mode"
+                        android:textColor="@color/green"
+                        android:textSize="13sp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_server_type_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:singleLine="true"
+                        android:text=">"
+                        android:textColor="@color/green"/>
+                    <TextView
+                        android:id="@+id/tv_server_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/tv_server_type_arrow"
+                        android:layout_toRightOf="@+id/provide_mode_text"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/green" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Electronic_protocol_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_panel_server_type"
+                    android:layout_marginTop="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true">
+
+                        <CheckBox
+                            android:id="@+id/cb_agree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_contract"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="2dp"
+                            android:layout_toRightOf="@id/cb_agree"
+                            android:text="@string/re_Electronic_protocol"
+                            android:textColor="@color/green"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/re_ok_layout"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/Electronic_protocol_layout"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="10dp">
+
+                    <Button
+                        android:id="@+id/bt_register_now"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/button_fillet"
+                        android:text="@string/re_ok"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
