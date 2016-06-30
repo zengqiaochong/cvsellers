@@ -1,9 +1,6 @@
 package com.caomei.cvseller.activity;
 
-import android.app.usage.UsageEvents;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -67,7 +64,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void setData() {
-        RoleId="4";
+        RoleId="3";
         mListner = new CommonListner();
         tvRegister.setOnClickListener(mListner);
         btLogin.setOnClickListener(mListner);

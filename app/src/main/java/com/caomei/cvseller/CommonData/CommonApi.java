@@ -47,7 +47,7 @@ public class CommonApi {
      * 10 roleType
      * 11 user_id
      */
-    public static String URL_REGISTER = "Reg_createGuest?" +
+    public static String URL_REGISTER = "Reg_createUser?" +
             "username=%s&" +
             "password=%s&" +
             "realname=%s&" +
@@ -55,10 +55,10 @@ public class CommonApi {
             "province=%s&" +
             "communityid=%s&" +
             "storeName=%s&" +
-            "storePlace=%s" +
+            "storePlace=%s&" +
             "deliverScope=%s&" +
             "roleType=%s&" +
-            "user_id=%s&";
+            "user_id=%s";
 
     /**
      * 用户登录接口 1 username 2 password 3 roleid

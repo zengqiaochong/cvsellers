@@ -3,6 +3,7 @@ package com.caomei.cvseller.activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -28,6 +29,7 @@ import com.caomei.cvseller.util.ShareUtil;
 import com.caomei.cvseller.util.ToastUtil;
 import com.google.gson.Gson;
 
+import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,7 +44,6 @@ public class RegistActivity extends BaseActivity {
     private EditText etCode;
     private EditText etPwd;
     private EditText etPwdConfirm;
-    private EditText etUserName;
     private EditText etIDNo;
     private TextView tvUpManage;
     private RelativeLayout panelUpManager;
@@ -62,6 +63,7 @@ public class RegistActivity extends BaseActivity {
     
     private EditText etRealName;
     private myTimerTask myTask;
+    private Timer mTimer = new Timer();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,8 +128,6 @@ public class RegistActivity extends BaseActivity {
                     break;
                 case R.id.cb_agree:
                     break;
-
-
                 case R.id.rl_panel_up_manager:
                     ShowDialog();
                     tvUpManage.setText("測試1");
@@ -202,22 +202,21 @@ public class RegistActivity extends BaseActivity {
                         etRealName.getEditableText().toString(),
                         etIDNo.getEditableText().toString(),
                         "湖南省",
-                        ShareUtil.getInstance(mContext).getUserId(),
-                        "配送范围",
-                        4,
-                        "",
-                        "白菜",
-                        etMarket.getEditableText().toString(),
-                        etMarketPostion.getEditableText().toString()
+                       "10001",
+                        "实体店名称",
+                        "实体店位置",
+                        "服务范围",
+                         "3",
+                      shareUtil.getInstance(mContext).getUserId()
                 );
                 AccessNetResultBean bean = NetUtil.getInstance(mContext).getDataFromNetByGet(url);
                 try {
                     if (bean.getState() == AccessNetState.AccessNetState.Success) {
+                        Log.e("result","注册的接口结果： "+bean.getResult());
                         TypeMsgBean tBean = new Gson().fromJson(bean.getResult(), TypeMsgBean.class);
                         if (tBean.getRESULT_TYPE() == 1) {
                             EventBus.getDefault().post(new EventMsg(ECode.REGISTER_DONE, tBean.getRESULT_MSG()));
                         } else {
-
                             EventBus.getDefault().post(new EventMsg(ECode.REGISTER_ERROR, tBean.getRESULT_MSG()));
                         }
                     }
@@ -246,7 +245,7 @@ public class RegistActivity extends BaseActivity {
             ToastUtil.Show(mContext, "两次输入的密码不一致");
             return false;
         }
-        if (etUserName.getText() == null || etUserName.getText().length() == 0) {
+        if (etRealName.getText() == null || etRealName.getText().length() == 0) {
             ToastUtil.Show(mContext, "请输入你的真实姓名");
             return false;
         }
@@ -291,6 +290,10 @@ public class RegistActivity extends BaseActivity {
             Toast.makeText(RegistActivity.this, "电话号码不合法", Toast.LENGTH_SHORT).show();
             return;
         }
+        btGetCoder.setClickable(false);
+
+        myTask = new myTimerTask(btGetCoder, 300);
+        mTimer.schedule(myTask, 1000, 1000);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -300,6 +303,7 @@ public class RegistActivity extends BaseActivity {
                     if (bean.getState() == AccessNetState.AccessNetState.Success) {
                         TypeMsgBean tBean = new Gson().fromJson(bean.getResult(), TypeMsgBean.class);
                         if (tBean.getRESULT_TYPE() == 1) {
+                            Log.e("result", "获取验证码的结果  " + bean.getResult());
                             EventBus.getDefault().post(new EventMsg(ECode.GET_MSM_CODER_DONE, tBean.getRESULT_MSG()));
                         } else {
                             EventBus.getDefault().post(new EventMsg(ECode.GET_MSM_CODER_ERROR, tBean.getRESULT_MSG()));
@@ -310,10 +314,8 @@ public class RegistActivity extends BaseActivity {
                 }
             }
         }).start();
-
-
-
     }
+
     class myTimerTask extends TimerTask {
         private int length;
         private Button btn;
@@ -333,7 +335,6 @@ public class RegistActivity extends BaseActivity {
                             myTask.cancel();
                         }
                         btGetCoder.setClickable(true);
-                        btGetCoder.setBackgroundColor(getResources().getColor(R.color.gray));
                         btn.setText("获取验证码");
                     }
                 }
@@ -380,7 +381,6 @@ public class RegistActivity extends BaseActivity {
                 break;
         }
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
