@@ -28,6 +28,7 @@ import com.caomei.cvseller.util.NetUtil;
 import com.caomei.cvseller.util.ShareUtil;
 import com.caomei.cvseller.util.ToastUtil;
 import com.google.gson.Gson;
+import com.nsky.comm.weibo.WeiboWebviewActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -125,6 +126,10 @@ public class RegistActivity extends BaseActivity {
                     getMSMCoder();
                     break;
                 case R.id.tv_contract:
+                    Bundle mb=new Bundle();
+                    mb.putString("title","菜来了商家协议");
+                    mb.putString("url","http://app.zmbok.com:8080/zouma/jiameng.jsp?userName="+etRealName.getEditableText().toString());
+                    startNewActivity(WebviewActivity.class,R.anim.activity_slide_right_in,R.anim.activity_slide_left_out,false,mb);
                     break;
                 case R.id.cb_agree:
                     break;
@@ -202,7 +207,7 @@ public class RegistActivity extends BaseActivity {
                         etRealName.getEditableText().toString(),
                         etIDNo.getEditableText().toString(),
                         "湖南省",
-                       "10001",
+                        "10001",
                         "实体店名称",
                         "实体店位置",
                         "服务范围",

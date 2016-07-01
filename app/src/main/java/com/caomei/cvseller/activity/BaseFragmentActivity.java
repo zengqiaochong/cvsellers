@@ -1,11 +1,11 @@
 package com.caomei.cvseller.activity;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 
 import com.caomei.cvseller.eventbus.EventMsg;
@@ -18,7 +18,7 @@ import de.greenrobot.event.EventBus;
 /**
  * Created by poker on 16/6/26.
  */
-public abstract class  BaseActivity extends AppCompatActivity{
+public abstract class BaseFragmentActivity extends FragmentActivity{
     public Context mContext;
     public NetUtil netUtil;
     public ShareUtil shareUtil;
