@@ -90,9 +90,9 @@ public class LoginActivity extends BaseActivity {
                     startNewActivity(SelectRoleActivity.class, R.anim.activity_slide_right_in, R.anim.activity_slide_left_out, false, null);
                     break;
                 case R.id.bt_login:
-//                    if (userInfoFull())
-//                        login();
-                    startNewActivity(MainActivity.class,R.anim.activity_slide_right_in,R.anim.activity_slide_left_out,true,null);
+                    if (userInfoFull())
+                        login();
+//                    startNewActivity(MainActivity.class,R.anim.activity_slide_right_in,R.anim.activity_slide_left_out,true,null);
                     break;
                 case R.id.tv_forget_pwd:
                     ToastUtil.Show(mContext,"请加群联系管理员");

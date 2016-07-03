@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="logo_bg">#E7E9E8</color>
+
+    E7E9E8
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="green">#00a839</color>
