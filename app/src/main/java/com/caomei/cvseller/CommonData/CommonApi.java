@@ -11,8 +11,6 @@ public class CommonApi {
      * 获取数据的基础URL
      */
     public static String BASE_URL = "http://www.happycopy.cn:8080/zouma/";
-
-
     /**
      * <pre>
      *  获取菜品图片信息的接口
