@@ -212,12 +212,14 @@ public class RegistActivity extends BaseActivity {
                         "实体店位置",
                         "服务范围",
                          "3",
+                        "10002",
                       shareUtil.getInstance(mContext).getUserId()
                 );
+                Log.e("url","注册的url 为："+url);
                 AccessNetResultBean bean = NetUtil.getInstance(mContext).getDataFromNetByGet(url);
                 try {
                     if (bean.getState() == AccessNetState.AccessNetState.Success) {
-                        Log.e("result","注册的接口结果： "+bean.getResult());
+                        Log.e("result","注册结果： "+bean.getResult());
                         TypeMsgBean tBean = new Gson().fromJson(bean.getResult(), TypeMsgBean.class);
                         if (tBean.getRESULT_TYPE() == 1) {
                             EventBus.getDefault().post(new EventMsg(ECode.REGISTER_DONE, tBean.getRESULT_MSG()));

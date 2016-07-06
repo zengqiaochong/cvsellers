@@ -17,12 +17,14 @@ import com.caomei.cvseller.fragment.FragmentSpread;
 import com.caomei.cvseller.fragment.FragmentTask;
 import com.caomei.cvseller.fragment.FragmentUser;
 
+import java.util.List;
+
 import static com.caomei.cvseller.R.id.rl_fragment_container;
 
 /**
  * Created by Wang Xiaojian on 2016/6/30.
  */
-public class MainActivity extends BaseFragmentActivity{
+public class MainActivity extends BaseFragmentActivity {
 
     private FragmentManager fm;
     private FragmentTransaction ft;
@@ -46,59 +48,76 @@ public class MainActivity extends BaseFragmentActivity{
         setView();
         setData();
     }
+
     @Override
     public void setView() {
-        fragContainer=(RelativeLayout)findViewById(R.id.rl_fragment_container);
+        fragContainer = (RelativeLayout) findViewById(R.id.rl_fragment_container);
 
-        panelTask=(LinearLayout)findViewById(R.id.ll_panel_task);
-        panelOper=(LinearLayout)findViewById(R.id.ll_panel_operation);
-        panelSpread=(LinearLayout)findViewById(R.id.ll_panel_spread);
-        panelUser=(LinearLayout)findViewById(R.id.ll_panel_user);
+        panelTask = (LinearLayout) findViewById(R.id.ll_panel_task);
+        panelOper = (LinearLayout) findViewById(R.id.ll_panel_operation);
+        panelSpread = (LinearLayout) findViewById(R.id.ll_panel_spread);
+        panelUser = (LinearLayout) findViewById(R.id.ll_panel_user);
 
     }
 
     @Override
     public void setData() {
+        clearFragments();
         initFragments();
+        mListener=new CommonListener();
         panelOper.setOnClickListener(mListener);
         panelTask.setOnClickListener(mListener);
         panelSpread.setOnClickListener(mListener);
         panelUser.setOnClickListener(mListener);
     }
-
+    private void clearFragments() {
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        if (fragments != null) {
+            for (Fragment f : fragments) {
+                if (f != null) {
+                    getSupportFragmentManager().beginTransaction().remove(f)
+                            .commit();
+                }
+            }
+        }
+    }
     private void initFragments() {
         fm = getSupportFragmentManager();
         mFragmentTask = new FragmentTask();
         ft = fm.beginTransaction();
         curFragment = mFragmentTask;
-        ft.add(R.id.rl_fragment_container,mFragmentTask);
+        ft.add(R.id.rl_fragment_container, mFragmentTask);
         ft.show(mFragmentTask);
         ft.commit();
     }
+
     @Override
     public void onEventMainThread(EventMsg msg) {
         super.onEventMainThread(msg);
     }
 
-    class CommonListener implements View.OnClickListener{
+    class CommonListener implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
-            ft = fm.beginTransaction();
-            switch (v.getId()){
+
+            switch (v.getId()) {
+
                 case R.id.ll_panel_task:
+                    ft = fm.beginTransaction();
                     if (curFragment != null) {
                         ft.hide(curFragment);
                     }
                     if (mFragmentTask == null) {
                         mFragmentTask = new FragmentTask();
                     }
-                    curFragment = mFragmentTask;
                     ft.show(mFragmentTask);
+                    curFragment = mFragmentTask;
                     ft.commitAllowingStateLoss();
                     resetTabView();
                     break;
                 case R.id.ll_panel_operation:
+                    ft = fm.beginTransaction();
                     if (curFragment != null) {
                         ft.hide(curFragment);
                     }
@@ -111,6 +130,7 @@ public class MainActivity extends BaseFragmentActivity{
                     resetTabView();
                     break;
                 case R.id.ll_panel_spread:
+                    ft = fm.beginTransaction();
                     if (curFragment != null) {
                         ft.hide(curFragment);
                     }
@@ -123,6 +143,7 @@ public class MainActivity extends BaseFragmentActivity{
                     resetTabView();
                     break;
                 case R.id.ll_panel_user:
+                    ft = fm.beginTransaction();
                     if (curFragment != null) {
                         ft.hide(curFragment);
                     }
@@ -135,11 +156,11 @@ public class MainActivity extends BaseFragmentActivity{
                     resetTabView();
                     break;
             }
-            ft.commit();
         }
     }
 
     private void resetTabView() {
+
 
     }
 }

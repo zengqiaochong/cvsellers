@@ -1,109 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray" >
+    android:background="@color/gray">
 
     <LinearLayout
         android:id="@+id/ll_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@color/white"
         android:layout_alignParentBottom="true"
+        android:background="@color/white"
         android:orientation="horizontal"
-        >
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
         <LinearLayout
             android:id="@+id/ll_panel_task"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/iv_task"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/iv_task"
-                />
+                android:src="@mipmap/iv_task" />
+
             <TextView
                 android:id="@+id/tv_task"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/green"
                 android:layout_marginTop="3dp"
-                android:text="任务"/>
-            </LinearLayout>
+                android:text="任务"
+                android:textColor="@color/green" />
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_panel_operation"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/iv_operation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/iv_operation"
-                />
+                android:src="@mipmap/iv_operation" />
+
             <TextView
                 android:id="@+id/tv_operation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_marginTop="3dp"
-                android:text="操作"/>
+                android:text="操作"
+                android:textColor="@color/black" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_panel_spread"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/iv_spread"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/iv_spread"
-                />
+                android:src="@mipmap/iv_spread" />
+
             <TextView
                 android:id="@+id/tv_spread"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_marginTop="3dp"
-                android:text="推广"/>
+                android:text="推广"
+                android:textColor="@color/black" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_panel_user"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/iv_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/iv_user"
-                />
+                android:src="@mipmap/iv_user" />
+
             <TextView
                 android:id="@+id/tv_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_marginTop="3dp"
-                android:text="我的"/>
+                android:text="我的"
+                android:textColor="@color/black" />
         </LinearLayout>
-        </LinearLayout>
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/rl_fragment_container"
-        android:layout_above="@+id/ll_footer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_footer"></RelativeLayout>
 </RelativeLayout>

@@ -20,6 +20,7 @@ public class FragmentOperation extends BaseFragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView=inflater.inflate(R.layout.fragment_oper,container,false);
+
         return mView;
     }
 }

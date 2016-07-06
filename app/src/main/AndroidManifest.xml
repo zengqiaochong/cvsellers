@@ -55,7 +55,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.LoginActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"
             >
@@ -79,7 +79,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait" />
 
 
