@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/gray_bg">
+    <!--任务中心页面-->
     <RelativeLayout
-        android:id="@+id/re_account_title"
+        android:id="@+id/task_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="@color/green">
+        android:background="@color/Dark_green">
 
         <TextView
-            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -20,91 +19,305 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
     </RelativeLayout>
+
     <RelativeLayout
+        android:id="@+id/Unread_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/white"
-        
-        >
-        <ImageView
-            android:id="@+id/iv_msg"
+        android:layout_height="60dp"
+        android:layout_below="@id/task_title"
+        android:background="@color/white">
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/iv_msg"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            />
-        <TextView
-            android:id="@+id/tv_msg"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#191919"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:text="未读消息"
-            android:layout_toRightOf="@id/iv_msg"></TextView>
+            android:layout_marginRight="20dp">
 
-        <TextView
-            android:id="@+id/tv_msg_count"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/money_yellow"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:text="20"
-            android:layout_toRightOf="@id/tv_msg"></TextView>
+            <ImageView
+                android:id="@+id/msg_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_msg" />
 
-        <ImageView
-            android:id="@+id/iv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/iv_location"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:padding="5dp"/>
+            <TextView
+                android:id="@+id/no_msg_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/msg_img"
+                android:text="未读消息"
+                android:textColor="@color/gray_light"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/no_msg_text"
+                android:text="20"
+                android:textColor="@color/money_yellow"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_location"
+
+                />
+        </RelativeLayout>
     </RelativeLayout>
+
+
     <RelativeLayout
-        android:id="@+id/rl_search_panel"
+        android:id="@+id/search_layout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/search_bg">
-        <ImageView
-            android:id="@+id/iv_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/iv_search"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            />
-        <TextView
-            android:id="@+id/tv_search_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="搜索：请输入客户相关信息"
-            android:textColor="@color/gray"
-            android:layout_toRightOf="@+id/iv_search"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            />
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="50dp"
+        android:layout_below="@id/Unread_layout"
+
+        >
+
         <RelativeLayout
+            android:id="@+id/task_scan_btn"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:background="@color/white">
+
+
+
+            <ImageView
+
+                android:id="@+id/search_img_view"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/iv_search" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/search_img_view"
+                android:maxLength="15"
+                android:textColor="@color/gray_light"
+                android:text="搜索：输入客户相关信息"
+                android:textSize="14sp"></TextView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_layout"
+        android:layout_marginLeft="0dp">
+
+        <RelativeLayout
+
+            android:id="@+id/doorway_Pick_up_layout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
-            >
-            <View
-                android:layout_height="0.5dp"
-                android:layout_width="match_parent"
-                android:background="@color/gray"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/roor_pick_img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_pick_on_door" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/roor_pick_img"
+                android:text="门口取件"
+                android:textColor="@color/gray_light"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_arrow_right"
+                android:tint="@color/money_yellow"
                 />
-            </RelativeLayout>
-        </LinearLayout>
-</LinearLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/delivers_goods_to_the_homes_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/doorway_Pick_up_layout"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/delivers_goods_img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_carry_to_home"
+
+                />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/delivers_goods_img"
+                android:text="送货上门"
+                android:textColor="@color/gray_light"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_arrow_right"
+                android:tint="@color/money_yellow"
+
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/task_since_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/delivers_goods_to_the_homes_layout"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/idsince_img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_take_from_market"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/idsince_img"
+                android:text="店面自提"
+                android:textColor="@color/gray_light"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_arrow_right"
+                android:tint="@color/money_yellow"
+
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/task_not_sign_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/task_since_layout"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/inot_sign_img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_record_to_sign"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/inot_sign_img"
+                android:text="未签收记录"
+                android:textColor="@color/gray_light"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_arrow_right"
+                android:tint="@color/money_yellow"
+
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/task_spread_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/task_not_sign_layout"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/spread_img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_today_spread"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/spread_img"
+                android:text="今日推广"
+                android:textColor="@color/gray_light"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/iv_arrow_right"
+                android:tint="@color/money_yellow"
+
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

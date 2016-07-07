@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.caomei.cvseller.R;
 import com.caomei.cvseller.eventbus.EventMsg;
@@ -19,6 +20,8 @@ import com.caomei.cvseller.fragment.FragmentUser;
 
 import java.util.List;
 
+import static com.caomei.cvseller.R.id.ll_panel_operation;
+import static com.caomei.cvseller.R.id.ll_panel_task;
 import static com.caomei.cvseller.R.id.rl_fragment_container;
 
 /**
@@ -64,12 +67,13 @@ public class MainActivity extends BaseFragmentActivity {
     public void setData() {
         clearFragments();
         initFragments();
-        mListener=new CommonListener();
+        mListener = new CommonListener();
         panelOper.setOnClickListener(mListener);
         panelTask.setOnClickListener(mListener);
         panelSpread.setOnClickListener(mListener);
         panelUser.setOnClickListener(mListener);
     }
+
     private void clearFragments() {
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
         if (fragments != null) {
@@ -81,6 +85,7 @@ public class MainActivity extends BaseFragmentActivity {
             }
         }
     }
+
     private void initFragments() {
         fm = getSupportFragmentManager();
         mFragmentTask = new FragmentTask();
@@ -105,55 +110,61 @@ public class MainActivity extends BaseFragmentActivity {
 
                 case R.id.ll_panel_task:
                     ft = fm.beginTransaction();
-                    if (curFragment != null) {
-                        ft.hide(curFragment);
-                    }
                     if (mFragmentTask == null) {
                         mFragmentTask = new FragmentTask();
                     }
-                    ft.show(mFragmentTask);
+                    ft.replace(R.id.rl_fragment_container, mFragmentTask);
                     curFragment = mFragmentTask;
+                    ft.show(mFragmentSpread);
                     ft.commitAllowingStateLoss();
+
                     resetTabView();
+                    ((ImageView) panelTask.findViewById(R.id.iv_task)).setColorFilter(getResources().getColor(R.color.green));
+                    ((TextView) panelTask.findViewById(R.id.tv_task)).setTextColor(getResources().getColor(R.color.green));
                     break;
                 case R.id.ll_panel_operation:
                     ft = fm.beginTransaction();
-                    if (curFragment != null) {
-                        ft.hide(curFragment);
-                    }
                     if (mFragmentOper == null) {
                         mFragmentOper = new FragmentOperation();
                     }
+                    ft.replace(R.id.rl_fragment_container, mFragmentOper);
                     curFragment = mFragmentOper;
                     ft.show(mFragmentOper);
                     ft.commitAllowingStateLoss();
+
                     resetTabView();
+
+                    ((ImageView) panelOper.findViewById(R.id.iv_operation)).setColorFilter(getResources().getColor(R.color.green));
+                    ((TextView) panelOper.findViewById(R.id.tv_operation)).setTextColor(getResources().getColor(R.color.green));
                     break;
                 case R.id.ll_panel_spread:
                     ft = fm.beginTransaction();
-                    if (curFragment != null) {
-                        ft.hide(curFragment);
-                    }
+
                     if (mFragmentSpread == null) {
                         mFragmentSpread = new FragmentSpread();
                     }
+                    ft.replace(R.id.rl_fragment_container, mFragmentSpread);
                     curFragment = mFragmentSpread;
                     ft.show(mFragmentSpread);
                     ft.commitAllowingStateLoss();
                     resetTabView();
+
+                    ((ImageView) panelSpread.findViewById(R.id.iv_spread)).setColorFilter(getResources().getColor(R.color.green));
+                    ((TextView) panelSpread.findViewById(R.id.tv_spread)).setTextColor(getResources().getColor(R.color.green));
                     break;
                 case R.id.ll_panel_user:
                     ft = fm.beginTransaction();
-                    if (curFragment != null) {
-                        ft.hide(curFragment);
-                    }
+
                     if (mFragmentUser == null) {
                         mFragmentUser = new FragmentUser();
                     }
+                    ft.replace(R.id.rl_fragment_container, mFragmentUser);
                     curFragment = mFragmentUser;
                     ft.show(mFragmentUser);
                     ft.commitAllowingStateLoss();
                     resetTabView();
+                    ((ImageView) panelUser.findViewById(R.id.iv_user)).setColorFilter(getResources().getColor(R.color.green));
+                    ((TextView) panelUser.findViewById(R.id.tv_user)).setTextColor(getResources().getColor(R.color.green));
                     break;
             }
         }
@@ -161,6 +172,17 @@ public class MainActivity extends BaseFragmentActivity {
 
     private void resetTabView() {
 
+        ((ImageView) panelTask.findViewById(R.id.iv_task)).setColorFilter(getResources().getColor(R.color.black));
+        ((TextView) panelTask.findViewById(R.id.tv_task)).setTextColor(getResources().getColor(R.color.black));
+
+        ((ImageView) panelSpread.findViewById(R.id.iv_spread)).setColorFilter(getResources().getColor(R.color.black));
+        ((TextView) panelSpread.findViewById(R.id.tv_spread)).setTextColor(getResources().getColor(R.color.black));
+
+        ((ImageView) panelOper.findViewById(R.id.iv_operation)).setColorFilter(getResources().getColor(R.color.black));
+        ((TextView) panelOper.findViewById(R.id.tv_operation)).setTextColor(getResources().getColor(R.color.black));
+
+        ((ImageView) panelUser.findViewById(R.id.iv_user)).setColorFilter(getResources().getColor(R.color.black));
+        ((TextView) panelUser.findViewById(R.id.tv_user)).setTextColor(getResources().getColor(R.color.black));
 
     }
 }
