@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,6 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import com.caomei.cvseller.CommonData.CommonApi;
 import com.caomei.cvseller.Enum.AccessNetState;
 import com.caomei.cvseller.R;
 import com.caomei.cvseller.bean.AccessNetResultBean;
+import com.caomei.cvseller.bean.CommunityBean;
 import com.caomei.cvseller.bean.TypeMsgBean;
 import com.caomei.cvseller.eventbus.ECode;
 import com.caomei.cvseller.eventbus.EventMsg;
@@ -30,8 +33,11 @@ import com.caomei.cvseller.util.ToastUtil;
 import com.google.gson.Gson;
 import com.nsky.comm.weibo.WeiboWebviewActivity;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.Exchanger;
+import java.util.concurrent.RunnableFuture;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +51,6 @@ public class RegistActivity extends BaseActivity {
     private EditText etCode;
     private EditText etPwd;
     private EditText etPwdConfirm;
-    private EditText etIDNo;
     private TextView tvUpManage;
     private RelativeLayout panelUpManager;
     private RelativeLayout panelServerName;
@@ -65,6 +70,15 @@ public class RegistActivity extends BaseActivity {
     private EditText etRealName;
     private myTimerTask myTask;
     private Timer mTimer = new Timer();
+    private CommunityBean xBean;
+    private ArrayList<String> mProvinces;
+    private ArrayAdapter<String> adapter;
+    private TextView tvProvince;
+    private TextView tvServerArea;
+    private TextView tvCounty;
+    private ArrayList<String> mAreas;
+    private ArrayList<String> mCounty;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,11 +97,14 @@ public class RegistActivity extends BaseActivity {
         etPwdConfirm = (EditText) findViewById(R.id.et_pwd_confirm);
         etRealName =(EditText)findViewById(R.id.et_nick_name);
         tvUpManage = (TextView) findViewById(R.id.tv_update_manager);
-        etIDNo = (EditText) findViewById(R.id.et_user_id_number);
         panel_area = (RelativeLayout) findViewById(R.id.rl_panel_area);
-        tvArea = (TextView) findViewById(R.id.tv_server_name);
+        tvServerArea = (TextView) findViewById(R.id.tv_server_name);
         panelServerName = (RelativeLayout) findViewById(R.id.rl_panel_area);
         tvServerName = (TextView) findViewById(R.id.tv_server_name);
+
+        tvProvince=(TextView)findViewById(R.id.tv_province);
+        tvArea=(TextView)findViewById(R.id.tv_area);
+        tvCounty=(TextView)findViewById(R.id.tv_county);
 
         etMarket = (EditText) findViewById(R.id.et_market_name);
         etMarketPostion = (EditText) findViewById(R.id.et_market_postion);
@@ -112,6 +129,19 @@ public class RegistActivity extends BaseActivity {
         panelUpManager.setOnClickListener(mListener);
         panelServerName.setOnClickListener(mListener);
         panelServerType.setOnClickListener(mListener);
+        requestData();
+
+    }
+
+    private void requestData() {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String url=CommonApi.URL_GET_CITY_LIST;
+                netUtil.run(url,ECode.GET_CITY_LIST_DONE,ECode.GET_CITY_LIST_ERROR);
+            }
+        }).start();
     }
 
     class CommonListener implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
@@ -139,7 +169,7 @@ public class RegistActivity extends BaseActivity {
                     break;
                 case R.id.rl_panel_area:
                     ShowDialog();
-                    tvArea.setText("測試1");
+                    tvServerArea.setText("測試1");
                     break;
                 case R.id.rl_panel_server_type:
                     ShowDialog();
@@ -205,7 +235,6 @@ public class RegistActivity extends BaseActivity {
                         etPhoneNo.getEditableText().toString(),
                         etPwd.getEditableText().toString(),
                         etRealName.getEditableText().toString(),
-                        etIDNo.getEditableText().toString(),
                         "湖南省",
                         "10001",
                         "实体店名称",
@@ -256,9 +285,6 @@ public class RegistActivity extends BaseActivity {
             ToastUtil.Show(mContext, "请输入你的真实姓名");
             return false;
         }
-        if (!idLegalIDNO()) {
-            return false;
-        }
         if (TextUtils.isEmpty(tvUpManage.getText())) {
             ToastUtil.Show(mContext, "请选择上级管理驿站");
             return false;
@@ -280,16 +306,6 @@ public class RegistActivity extends BaseActivity {
             return false;
         }
         return true;
-    }
-
-    private boolean idLegalIDNO() {
-        String res = CheckIDNumber.IDCardValidate(etIDNo.getEditableText().toString());
-        if ("".equals(res))
-            return true;
-        else {
-            ToastUtil.Show(mContext, res);
-            return false;
-        }
     }
 
     private void getMSMCoder() {
@@ -386,8 +402,32 @@ public class RegistActivity extends BaseActivity {
             case ECode.CHECK_MSM_ERROR:
                 ToastUtil.Show(mContext,msg.getData().toString());
                 break;
+            case ECode.GET_CITY_LIST_DONE:
+                try {
+                    String json = msg.getData().toString();
+                    xBean = new Gson().fromJson(json,
+                            CommunityBean.class);
+                    notifyDataDone();
+                }catch (Exception ex){
+                    Log.e("error","获取全国市区数据出错： "+ex.getLocalizedMessage()+"\n"+msg.getData().toString());
+                    ToastUtil.Show(mContext,"市区数据出错");
+                }
+                break;
+            case ECode.GET_CITY_LIST_ERROR:
+                break;
         }
     }
+
+    private void notifyDataDone() {
+        mProvinces=xBean.getProvince();
+        mAreas=xBean.getCity(mProvinces.get(0));
+        mCounty=xBean.getCounty(mAreas.get(0));
+
+        tvProvince.setText(mProvinces.get(0));
+        tvArea.setText(mAreas.get(0));
+        tvCounty.setText(mCounty.get(0));
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

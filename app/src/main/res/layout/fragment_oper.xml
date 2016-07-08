@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+    <!--扫描中心页面-->
+    <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/re_account_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/Dark_green"
+        >
+        <TextView
+            android:id="@+id/id_scan_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描中心"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/role_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            >
+
+            <RelativeLayout
+                android:id="@+id/op_scan_to_scan_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                >
+                <Button
+                    android:id="@+id/bt_scan_arrival"
+                    android:layout_width="250dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_fillet"
+                    android:text="到件扫描"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/op_scan_to_scan_layout"
+                android:id="@+id/op_distribution_scan_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                >
+                <Button
+                    android:id="@+id/bt_send_scan"
+                    android:layout_width="250dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_fillet"
+                    android:text="配送扫描"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/op_distribution_scan_layout"
+                android:id="@+id/op_Sign_scan_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                >
+                <Button
+                    android:id="@+id/bt_sign_scan"
+                    android:layout_width="250dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_fillet"
+                    android:text="签收录入"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

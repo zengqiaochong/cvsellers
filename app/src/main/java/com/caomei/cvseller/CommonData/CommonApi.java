@@ -10,7 +10,10 @@ public class CommonApi {
     /**
      * 获取数据的基础URL
      */
-    public static String BASE_URL = "http://www.happycopy.cn:8080/zouma_t/";
+//    public static String BASE_URL = "http://www.happycopy.cn:8080/zouma/";
+
+    //这个是测试接口
+    public static String BASE_URL = "http://app.zmbok.com:8080/zouma_t/";
     /**
      * <pre>
      *  获取菜品图片信息的接口
@@ -29,6 +32,10 @@ public class CommonApi {
      * 检查短信验证码 1 phoneNO 2 smsCode 3 user_id
      */
     public static String URL_CHECK_SMS_CODE = "SMSAuth_checkSMSAuthCode?phoneNO=%s&smsCode=%s&user_id=%s";
+    /**
+     * 获取全国的区县列表
+     */
+    public static String URL_GET_CITY_LIST="http://www.happycopy.cn:8080/zouma/Community_getCommunityList?type=all&areaName=&user_id=10000005";
 
     /**
      * <pre>
@@ -50,7 +57,6 @@ public class CommonApi {
             "username=%s&" +
             "password=%s&" +
             "realname=%s&" +
-            "IDCode=%s&" +
             "province=%s&" +
             "communityid=%s&" +
             "storeName=%s&" +
@@ -65,8 +71,4 @@ public class CommonApi {
      */
     public static String URL_LOGIN = "Login_login_merchant?username=%s&password=%s&roleType=%s&user_id=-1";
 
-    /**
-     *
-     */
-    public static String URL_GET_AGENT_ID="Reg_getAgent3Options?city=%s";
-}
+   }

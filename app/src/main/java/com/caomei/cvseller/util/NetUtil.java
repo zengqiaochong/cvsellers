@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.caomei.cvseller.Enum.AccessNetState;
 import com.caomei.cvseller.bean.AccessNetResultBean;
+import com.caomei.cvseller.eventbus.ECode;
+import com.caomei.cvseller.eventbus.EventMsg;
 import com.google.gson.Gson;
 import com.loopj.android.http.HttpGet;
 
@@ -41,6 +43,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.zip.GZIPInputStream;
+
+import de.greenrobot.event.EventBus;
 
 /** 
  * 
@@ -517,5 +521,13 @@ public class NetUtil {
 		webView.getSettings().setUserAgentString("User-Agent");
 		webView.setWebChromeClient(new WebChromeClient() {
 		});
+	}
+	public void run(String url,int succeedCode,int failedCode){
+		AccessNetResultBean bean=getDataFromNetByGet(url);
+		if(bean.getState()==AccessNetState.AccessNetState.Success){
+			EventBus.getDefault().post(new EventMsg(succeedCode,bean.getResult()));
+		}else{
+			EventBus.getDefault().post(new EventMsg(failedCode,bean.getResult()));
+		}
 	}
 }

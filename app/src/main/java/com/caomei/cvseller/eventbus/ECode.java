@@ -15,4 +15,6 @@ public class ECode {
 
     public static  final int LOGIN_IN_ERROR=6;
     public static final int LOGIN_IN_OK=7;
+    public static final int GET_CITY_LIST_DONE = 8;
+    public static final int GET_CITY_LIST_ERROR = 9;
 }

@@ -33,9 +33,9 @@
         android:layout_below="@id/re_account_title">
 
         <RelativeLayout
-
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -45,8 +45,10 @@
 
                 <RelativeLayout
                     android:id="@+id/re_tel_layout"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
+
+                    android:layout_marginRight="100dp"
                     android:background="@drawable/border_radius">
                     >
 
@@ -64,12 +66,13 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_toRightOf="@id/tel_img"
                         android:background="@color/white"
                         android:hint="@string/re_tel"
                         android:inputType="phone"
-                        android:singleLine="true"
                         android:maxLength="11"
+                        android:singleLine="true"
                         android:textColor="@color/green"
                         android:textColorHint="@color/gray"
                         android:textSize="12sp" />
@@ -79,10 +82,10 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_toRightOf="@id/re_tel_layout">
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp">
 
                     <Button
-
                         android:id="@+id/bt_get_coder"
                         android:layout_width="60dp"
                         android:layout_height="30dp"
@@ -98,9 +101,10 @@
 
                 <RelativeLayout
                     android:id="@+id/Ver_code_layout"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_below="@id/re_tel_layout"
+                    android:layout_marginRight="100dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_radius">
 
@@ -124,6 +128,7 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_toRightOf="@id/Ver_code_text"
                         android:background="@color/white"
                         android:hint="@string/re_input_Ver_code"
@@ -136,9 +141,10 @@
 
                 <RelativeLayout
                     android:id="@+id/Prefecture"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_below="@+id/Ver_code_layout"
+                    android:layout_marginRight="100dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_radius">
                     >
@@ -157,6 +163,7 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_toRightOf="@id/Set_pass_img"
                         android:background="@color/white"
                         android:hint="@string/re_Set_pass"
@@ -169,9 +176,10 @@
 
                 <RelativeLayout
                     android:id="@+id/re_ok_pass_layout"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_below="@+id/Prefecture"
+                    android:layout_marginRight="100dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_radius"
 
@@ -191,6 +199,7 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_toRightOf="@id/re_ok_pass_text"
                         android:background="@color/white"
                         android:hint="@string/re_ok_pass_prompt"
@@ -203,9 +212,10 @@
 
                 <RelativeLayout
                     android:id="@+id/re_Real_name_layout"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_below="@+id/re_ok_pass_layout"
+                    android:layout_marginRight="100dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_radius">
 
@@ -227,6 +237,7 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_toRightOf="@id/re_Real_name"
                         android:background="@color/white"
                         android:hint="@string/re_Real_name_prompt"
@@ -237,43 +248,128 @@
 
                 <RelativeLayout
                     android:id="@+id/identification_name_layout"
-                    android:layout_width="250dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_below="@+id/re_Real_name_layout"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/border_radius">
+                    android:layout_marginTop="10dp">
 
+                    <RelativeLayout
+                        android:id="@+id/rl_province"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/border_radius"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_province"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:minWidth="30dp"
+                            android:text="未选择"
+                            android:textColor="@color/gray_light"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/tv_province"
+                            android:src="@mipmap/iv_arror_down" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/border_radius"
+                        android:paddingLeft="10dp"
+                        android:layout_toRightOf="@+id/tv_province_txt"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_area"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:minWidth="30dp"
+                            android:text="未选择"
+                            android:textColor="@color/gray_light"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/tv_area"
+                            android:src="@mipmap/iv_arror_down" />
+                    </RelativeLayout>
                     <TextView
-                        android:id="@+id/identification_name"
+                        android:id="@+id/tv_area_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-                        android:text="@string/re_identification"
-                        android:textColor="@color/green"
-                        android:textSize="13sp"
+                        android:layout_toRightOf="@+id/rl_area"
+                        android:text="市"
+                        android:textColor="@color/gray_light"
+                        android:textSize="14sp" />
+                    <RelativeLayout
+                        android:id="@+id/rl_county"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/border_radius"
+                        android:paddingLeft="10dp"
+                        android:layout_toRightOf="@+id/tv_area_txt"
+                        android:paddingRight="10dp">
 
-                        />
+                        <TextView
+                            android:id="@+id/tv_county"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:minWidth="30dp"
+                            android:text="未选择"
+                            android:textColor="@color/gray_light"
+                            android:textSize="14sp" />
 
-                    <EditText
-                        android:id="@+id/et_user_id_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/tv_county"
+                            android:src="@mipmap/iv_arror_down" />
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tv_province_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-                        android:layout_toRightOf="@id/identification_name"
-                        android:background="@color/white"
-                        android:hint="@string/re_identification_prompt"
-                        android:singleLine="true"
-                        android:textColor="@color/green"
-                        android:textSize="12sp" />
+                        android:layout_toRightOf="@+id/rl_province"
+                        android:text="省"
+                        android:textColor="@color/gray_light"
+                        android:textSize="14sp" />
+
+
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/rl_panel_up_manager"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_below="@+id/identification_name_layout"
+                    android:layout_marginRight="100dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_radius">
 
@@ -342,6 +438,7 @@
                         android:singleLine="true"
                         android:text=">"
                         android:textColor="@color/green"></TextView>
+
                     <TextView
                         android:id="@+id/tv_server_name"
                         android:layout_width="match_parent"
@@ -382,6 +479,7 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_toRightOf="@id/re_physical_store_name"
                         android:background="@color/white"
                         android:hint="@string/re_input_physical_store_name"
@@ -415,6 +513,7 @@
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_toRightOf="@id/physical_store_position_name"
                         android:background="@color/white"
                         android:hint="@string/re_input_physical_store_name"
@@ -452,7 +551,8 @@
                         android:layout_marginRight="10dp"
                         android:singleLine="true"
                         android:text=">"
-                        android:textColor="@color/green"/>
+                        android:textColor="@color/green" />
+
                     <TextView
                         android:id="@+id/tv_server_type"
                         android:layout_width="wrap_content"
