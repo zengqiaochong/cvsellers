@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.util.EventLog;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -181,16 +182,23 @@ public class NetUtil {
 	 * @param errorCode
 	 */
 
-	public <T> void requestData(final String url, int successCode, int errorCode, T bean) {
+	public void requestData(final Context mContext, final String url, final int successCode, final int errorCode) {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				AccessNetResultBean bean = NetUtil.getInstance(context).getDataFromNetByGet(url);
+				AccessNetResultBean bean = NetUtil.getInstance(mContext).getDataFromNetByGet(url);
+
 				if (bean.getState() == AccessNetState.Success) {
 					try {
 						bean = new Gson().fromJson(bean.getResult(), bean.getClass());
-					} catch (Exception ex) {
 
+						if(bean.getState()==AccessNetState.AccessNetState.Success){
+							EventBus.getDefault().post(new EventMsg(successCode,bean.getResult()));
+						}else{
+							EventBus.getDefault().post(new EventMsg(errorCode,bean.getResult()));
+						}
+					} catch (Exception ex) {
+						EventBus.getDefault().post(new EventMsg(errorCode,ex.getLocalizedMessage()));
 					}
 				}
 			}

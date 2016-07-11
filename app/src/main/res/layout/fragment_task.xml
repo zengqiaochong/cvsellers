@@ -53,12 +53,13 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/tv_msg_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/no_msg_text"
-                android:text="20"
+                android:text="0"
                 android:textColor="@color/money_yellow"
                 android:textSize="17sp" />
 
@@ -90,15 +91,14 @@
             android:background="@color/white">
 
 
-
             <ImageView
-
                 android:id="@+id/search_img_view"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:src="@mipmap/iv_search" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,8 +106,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/search_img_view"
                 android:maxLength="15"
-                android:textColor="@color/gray_light"
                 android:text="搜索：输入客户相关信息"
+                android:textColor="@color/gray_light"
                 android:textSize="14sp"></TextView>
         </RelativeLayout>
     </RelativeLayout>
@@ -120,7 +120,6 @@
         android:layout_marginLeft="0dp">
 
         <RelativeLayout
-
             android:id="@+id/doorway_Pick_up_layout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -136,14 +135,34 @@
                 android:src="@mipmap/iv_pick_on_door" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv1"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/roor_pick_img"
-                android:text="门口取件"
+                android:text="门口取件:"
                 android:textColor="@color/gray_light"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_count1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/tv1"
+                android:text="0"
+                android:textColor="@color/money_yellow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_count1"
+                android:text="个"
+                android:textColor="@color/gray_light" />
 
             <ImageView
                 android:layout_width="18dp"
@@ -151,8 +170,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/iv_arrow_right"
-                android:tint="@color/money_yellow"
-                />
+                android:tint="@color/money_yellow" />
 
         </RelativeLayout>
 
@@ -177,15 +195,35 @@
                 />
 
             <TextView
-
-                android:layout_width="match_parent"
+                android:id="@+id/tv_send_to_door"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/delivers_goods_img"
-                android:text="送货上门"
+                android:text="送货上门:"
                 android:textColor="@color/gray_light"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_count2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/tv_send_to_door"
+                android:text="0"
+                android:textColor="@color/money_yellow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_count2"
+                android:text="个"
+                android:textColor="@color/gray_light" />
+
 
             <ImageView
                 android:layout_width="18dp"
@@ -219,14 +257,34 @@
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_store_take"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/idsince_img"
-                android:text="店面自提"
+                android:text="店面自提:"
                 android:textColor="@color/gray_light"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_count3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/tv_store_take"
+                android:text="0"
+                android:textColor="@color/money_yellow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_count3"
+                android:text="个"
+                android:textColor="@color/gray_light" />
 
             <ImageView
                 android:layout_width="18dp"
@@ -260,14 +318,34 @@
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_to_check"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/inot_sign_img"
-                android:text="未签收记录"
+                android:text="未签收记录:"
                 android:textColor="@color/gray_light"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_count4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/tv_to_check"
+                android:text="0"
+                android:textColor="@color/money_yellow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_count4"
+                android:text="个"
+                android:textColor="@color/gray_light" />
 
             <ImageView
                 android:layout_width="18dp"
@@ -296,18 +374,37 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/iv_today_spread"
-                />
+                android:src="@mipmap/iv_today_spread" />
+
+            <TextView
+                android:id="@+id/tv_spread_today"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/spread_img"
+                android:text="今日推广:"
+                android:textColor="@color/gray_light"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_count5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/tv_spread_today"
+                android:text="0"
+                android:textColor="@color/money_yellow" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/spread_img"
-                android:text="今日推广"
-                android:textColor="@color/gray_light"
-                android:textSize="16sp" />
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/tv_count5"
+                android:text="个"
+                android:textColor="@color/gray_light" />
 
             <ImageView
                 android:layout_width="18dp"

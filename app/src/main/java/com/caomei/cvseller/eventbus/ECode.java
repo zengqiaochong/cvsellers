@@ -17,4 +17,10 @@ public class ECode {
     public static final int LOGIN_IN_OK=7;
     public static final int GET_CITY_LIST_DONE = 8;
     public static final int GET_CITY_LIST_ERROR = 9;
+
+    public static final int SELECT_CITY_CHANGE = 10;
+    public static final int GET_STAGES_ERROR = 11;
+    public static final int GET_STAGES_SUCCESS = 12;
+    public static final int GET_COMMUNITY_SUCCESS = 13;
+    public static final int GET_COMMUNITY_ERROR = 14;
 }

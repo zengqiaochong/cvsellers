@@ -60,7 +60,6 @@ public class MainActivity extends BaseFragmentActivity {
         panelOper = (LinearLayout) findViewById(R.id.ll_panel_operation);
         panelSpread = (LinearLayout) findViewById(R.id.ll_panel_spread);
         panelUser = (LinearLayout) findViewById(R.id.ll_panel_user);
-
     }
 
     @Override

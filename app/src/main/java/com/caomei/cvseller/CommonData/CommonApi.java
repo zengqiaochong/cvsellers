@@ -33,39 +33,41 @@ public class CommonApi {
      */
     public static String URL_CHECK_SMS_CODE = "SMSAuth_checkSMSAuthCode?phoneNO=%s&smsCode=%s&user_id=%s";
     /**
-     * 获取全国的区县列表
+     * 获取相应市级下的驿站列表
      */
-    public static String URL_GET_CITY_LIST="http://www.happycopy.cn:8080/zouma/Community_getCommunityList?type=all&areaName=&user_id=10000005";
+    public static String URL_GET_STAGES="Reg_getAgent3OptionsForApp?city=%s";
+    /**
+     * 获取相应市级下的小区列表
+     */
+    public static String URL_GET_COMMUNITY="Reg_getCommunityOptionsForApp?county=%s";
 
     /**
      * <pre>
      * 用户注册接口
-     * 1 username  电话号码
+     * 1 phone  电话号码
      * 2 password
      * 3 realname
-     * 4 IDCode
-     * 5 province
-     * 6 communityid
-     * 7 storeName
-     * 8 storePlace
-     * 9 deliverScope
-     * 10 roleType
-     * 11 agent_id
-     * 12 user_id
+     * 4 Province
+     * 5 City
+     * 6 Communityid
+     * 7 CompanyName
+     * 8 Role_id
+     * 9 Address
+     * 10 Remark
+     * 11 deliverType
      */
     public static String URL_REGISTER = "Reg_createUser?" +
-            "username=%s&" +
+            "phone=%s&" +
             "password=%s&" +
             "realname=%s&" +
-            "province=%s&" +
-            "communityid=%s&" +
-            "storeName=%s&" +
-            "storePlace=%s&" +
-            "deliverScope=%s&" +
-            "roleType=%s&" +
-            "agent_id=%s&" +
-            "user_id=%s";
-
+            "Province=%s&" +
+            "City=%s&" +
+            "Communityid=%s&" +
+            "CompanyName=%s&" +
+            "Role_id=%s&" +
+            "Address=%s&" +
+            "Remark=%s&" +
+            "deliverType=%s";
     /**
      * 用户登录接口 1 username 2 password 3 roleid
      */

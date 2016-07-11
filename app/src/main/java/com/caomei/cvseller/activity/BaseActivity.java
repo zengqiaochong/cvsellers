@@ -1,7 +1,6 @@
 package com.caomei.cvseller.activity;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,23 +13,23 @@ import com.caomei.cvseller.util.ShareUtil;
 
 import de.greenrobot.event.EventBus;
 
-
 /**
  * Created by poker on 16/6/26.
  */
-public abstract class  BaseActivity extends AppCompatActivity{
+public abstract class BaseActivity extends AppCompatActivity {
     public Context mContext;
     public NetUtil netUtil;
     public ShareUtil shareUtil;
     public ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext=this;
-        shareUtil= ShareUtil.getInstance(mContext);
-        netUtil=NetUtil.getInstance(mContext);
+        mContext = this;
+        shareUtil = ShareUtil.getInstance(mContext);
+        netUtil = NetUtil.getInstance(mContext);
         EventBus.getDefault().register(this);
-        dialog=new ProgressDialog(mContext);
+        dialog = new ProgressDialog(mContext);
     }
 
 
@@ -48,14 +47,15 @@ public abstract class  BaseActivity extends AppCompatActivity{
     }
 
     public abstract void setView();
+
     public abstract void setData();
 
-    public void onEventMainThread(EventMsg msg){
+    public void onEventMainThread(EventMsg msg) {
 
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }

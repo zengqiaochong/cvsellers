@@ -275,7 +275,7 @@
                     android:layout_marginLeft="40dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@mipmap/iv_user_head"
+                    android:src="@mipmap/iv_manul"
                     android:layout_centerVertical="true"
                     />
 
@@ -313,7 +313,7 @@
                     android:layout_marginLeft="40dp"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@mipmap/iv_pride"
+                    android:src="@mipmap/iv_ranking"
                     android:layout_centerVertical="true"
 
                     />
